@@ -21,3 +21,31 @@
 // OR...
 // - year is a multiple of 400
 // hint - use modulo
+
+function twoFer(name: string = 'you'): string {
+	return `one for ${name}, one for me`;
+}
+
+console.log(twoFer());
+console.log(twoFer('Patrick'));
+
+
+const isLeapyear = (year: number): boolean => {
+	if (year % 4 === 0) {
+		if (year % 100 === 0) {
+			if (year % 400 === 0) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return true;
+		}
+	} else {
+		return false;
+	}
+};
+
+console.log(isLeapyear(1992))
+console.log(isLeapyear(2000))
+console.log(isLeapyear(1900))
