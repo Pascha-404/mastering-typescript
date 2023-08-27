@@ -1,6 +1,6 @@
 # Learning TypeScript Repository
 
-![TypeScript Logo](https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg)
+![TypeScript Logo](https://tms-outsource.com/blog/wp-content/uploads/2023/05/typescript-alternatives-1024x461.jpg)
 
 Welcome to my Learning TypeScript repository! 🚀
 
@@ -42,6 +42,6 @@ Let's grow together as developers by mastering TypeScript and unlocking a world 
 
 Happy coding! 😄👩‍💻👨‍💻
 
-— [Your Name]
+— Patrick Pavliuchik
   
 Connect with me on [LinkedIn](https://www.linkedin.com/in/patrick-pavliuchik-b481b9200/) 
