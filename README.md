@@ -42,6 +42,6 @@ Let's grow together as developers by mastering TypeScript and unlocking a world 
 
 Happy coding! 😄👩‍💻👨‍💻
 
-— Patrick Pavliuchik
+— Patrick
   
 Connect with me on [LinkedIn](https://www.linkedin.com/in/patrick-pavliuchik-b481b9200/) 
