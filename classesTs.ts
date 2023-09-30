@@ -75,3 +75,18 @@ const waltraud = new Dog('Waltraud', 5, 'Pugle', 15);
 console.log(waltraud);
 waltraud.eat('meat');
 waltraud.makeSound();
+
+
+interface Logger {
+	log(message: string): void;
+}
+
+class ConsoleLogger implements Logger{
+	log(message: string): void{
+		console.log(message)
+	}
+}
+
+const debug = new ConsoleLogger();
+
+debug.log('Fire in console.log!!!')
