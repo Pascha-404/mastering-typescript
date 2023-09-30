@@ -1,3 +1,8 @@
+// practicing classes
+// readonly = just readable, not changeable
+// private = just accessible in the Item class, no outside access
+// protected = accessible also in child classes, no outside access
+// public = accessible from everywhere, also outside of the class
 class Item {
 	constructor(
 		readonly id: number,
@@ -52,6 +57,8 @@ console.log(macbookPro.getItem);
 macbookPro.setDiscount = 10;
 console.log(macbookPro.getDiscount);
 
+// abstract classes act like a blueprint, you cannot create an instance of an abstract class using the 'new' keyword
+// abstract members are declared without an implementation, the implementation is made in the Subclass which is inheriting from the abstract class.
 abstract class Animal {
 	constructor(public name: string, public age: number) {}
 	abstract eat(food: string): void;
@@ -76,17 +83,19 @@ console.log(waltraud);
 waltraud.eat('meat');
 waltraud.makeSound();
 
-
+// interfaces can be implemented into classes
+// multiple interfaces can be added, seperated through ','
+// helps creating reusable, flexible and polymorphic code.
 interface Logger {
 	log(message: string): void;
 }
 
-class ConsoleLogger implements Logger{
-	log(message: string): void{
-		console.log(message)
+class ConsoleLogger implements Logger {
+	log(message: string): void {
+		console.log(message);
 	}
 }
 
 const debug = new ConsoleLogger();
 
-debug.log('Fire in console.log!!!')
+debug.log('Fire in console.log!!!');
