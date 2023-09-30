@@ -38,12 +38,12 @@ class SaleItem extends Item {
 	get getDiscount(): string {
 		const discountPrice = this._price - this._price * (this.discount / 100);
 		return `The discount price is ${discountPrice}€.`;
-    }
-    
-    set setDiscount(newDiscount: number) {
-        this.discount = newDiscount;
-        console.log(`Discount was set to ${newDiscount}%.`)
-    }
+	}
+
+	set setDiscount(newDiscount: number) {
+		this.discount = newDiscount;
+		console.log(`Discount was set to ${newDiscount}%.`);
+	}
 }
 
 const macbookPro = new SaleItem(42341, 'Macbook Pro 2015', 'electronic', 1249.5, 2, 15);
@@ -51,3 +51,27 @@ const macbookPro = new SaleItem(42341, 'Macbook Pro 2015', 'electronic', 1249.5,
 console.log(macbookPro.getItem);
 macbookPro.setDiscount = 10;
 console.log(macbookPro.getDiscount);
+
+abstract class Animal {
+	constructor(public name: string, public age: number) {}
+	abstract eat(food: string): void;
+	abstract makeSound(): void;
+}
+
+class Dog extends Animal {
+	constructor(name: string, age: number, public breed: string, public weight: number) {
+		super(name, age);
+	}
+	eat(food: string): void {
+		console.log(`${this.name} is eating ${food}.`);
+	}
+	makeSound() {
+		console.log('WOOF! WOOF!');
+	}
+}
+
+const waltraud = new Dog('Waltraud', 5, 'Pugle', 15);
+
+console.log(waltraud);
+waltraud.eat('meat');
+waltraud.makeSound();
