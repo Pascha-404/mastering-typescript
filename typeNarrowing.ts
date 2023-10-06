@@ -36,7 +36,29 @@ console.log(
 
 // Equality Narrowing
 function checkAnswer(x: string | number, y: string | boolean) {
-    if (x === y) {
-        return x.toUpperCase()
-    }
+	if (x === y) {
+		return x.toUpperCase();
+	}
 }
+
+// In Operator Narrowing
+interface Employe {
+	name: string;
+	position: string;
+	salary: number;
+}
+
+interface Ceo {
+	name: string;
+	salary: number;
+}
+
+function getPosition(input: Employe | Ceo): string {
+	if ('position' in input) {
+		return `The employe has a position as ${input.position}.`;
+	}
+	return 'The provided data belongs to the CEO';
+}
+
+console.log(getPosition({ name: 'Maria', salary: 4500, position: 'Developer' }));
+console.log(getPosition({ name: 'Daria', salary: 7000 }));
