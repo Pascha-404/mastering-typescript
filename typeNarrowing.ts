@@ -33,3 +33,10 @@ console.log(
 		{ name: 'Fineliner-Box', price: 6.75, amount: 2 },
 	])
 );
+
+// Equality Narrowing
+function checkAnswer(x: string | number, y: string | boolean) {
+    if (x === y) {
+        return x.toUpperCase()
+    }
+}
