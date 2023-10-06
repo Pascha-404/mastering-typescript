@@ -62,3 +62,32 @@ function getPosition(input: Employe | Ceo): string {
 
 console.log(getPosition({ name: 'Maria', salary: 4500, position: 'Developer' }));
 console.log(getPosition({ name: 'Daria', salary: 7000 }));
+
+// Instanceof Narrowing
+class SuperHero {
+	constructor(public name: string, public superpower: string, public score: number) {}
+	useSuperpower() {
+		console.log(`${this.name} uses ${this.superpower}.`);
+	}
+}
+
+class SuperVillian {
+	constructor(public name: string, public evilTrick: string, public score: number) {}
+	useEvilTrick() {
+		console.log(`${this.name} uses ${this.evilTrick}.`);
+	}
+}
+
+function triggerAttack(character: SuperHero | SuperVillian) {
+	if (character instanceof SuperHero) {
+		character.useSuperpower();
+	} else {
+		character.useEvilTrick();
+	}
+}
+
+const superman = new SuperHero('Superman', 'Laser Eyes', 100);
+const joker = new SuperVillian('Joker', 'Dad-Joke', 95);
+
+triggerAttack(superman);
+triggerAttack(joker);
