@@ -91,3 +91,48 @@ const joker = new SuperVillian('Joker', 'Dad-Joke', 95);
 
 triggerAttack(superman);
 triggerAttack(joker);
+
+// Type predicate
+interface Item {
+	name: string;
+	price: number;
+	count: number;
+	lastReduced: string;
+}
+
+interface SaleItem {
+	name: string;
+	price: number;
+	count: number;
+	sale: boolean;
+	discount: number;
+}
+
+function isSaleItem(product: Item | SaleItem): product is SaleItem {
+	return (product as SaleItem).sale !== undefined;
+}
+
+function advertiseItem(product: Item | SaleItem): string {
+	if (isSaleItem(product)) {
+		return `Big sale on ${product.name}! Safe ${product.discount}%. ${product.count} in stock!`;
+	}
+	return `Item not in sale. Last time on sale was ${product.lastReduced}.`;
+}
+
+const airpods: SaleItem = {
+	name: 'AirPods',
+	price: 199,
+	count: 6,
+	sale: true,
+	discount: 15,
+};
+
+const headset: Item = {
+	name: 'Logitech Headset',
+	price: 60,
+	count: 30,
+	lastReduced: '20.07.2023'
+}
+
+console.log(advertiseItem(airpods))
+console.log(advertiseItem(headset))
