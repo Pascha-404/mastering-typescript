@@ -156,7 +156,13 @@ interface HalfyearMember extends Member {
 	kind: 'halfyear';
 }
 
-function checkPermission(member: MonthlyMember | YearlyMember | HalfyearMember): string {
+interface UnlimitedMember extends Member {
+	kind: 'unlimited';
+}
+
+type Members = MonthlyMember | YearlyMember | HalfyearMember;
+
+function checkPermission(member: Members): string {
 	switch (member.kind) {
 		case 'monthly':
 			return 'Member has 4 times a week access.';
@@ -164,6 +170,10 @@ function checkPermission(member: MonthlyMember | YearlyMember | HalfyearMember):
 			return 'Member has access once a day.';
 		case 'yearly':
 			return 'Member has unlimited access.';
+		default:
+			// Code should never reach this point
+			const _exhaustivenessCheck: never = member;
+			return _exhaustivenessCheck;
 	}
 }
 
@@ -188,6 +198,14 @@ const member3: YearlyMember = {
 	kind: 'yearly',
 };
 
+const member4: UnlimitedMember = {
+	active: true,
+	fullName: 'Rose Reddington',
+	age: 90,
+	kind: 'unlimited',
+};
+
 console.log(checkPermission(member1));
 console.log(checkPermission(member2));
 console.log(checkPermission(member3));
+console.log(checkPermission(member4));
