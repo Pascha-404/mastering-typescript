@@ -131,8 +131,63 @@ const headset: Item = {
 	name: 'Logitech Headset',
 	price: 60,
 	count: 30,
-	lastReduced: '20.07.2023'
+	lastReduced: '20.07.2023',
+};
+
+console.log(advertiseItem(airpods));
+console.log(advertiseItem(headset));
+
+// Discriminated Unions
+interface Member {
+	active: boolean;
+	fullName: string;
+	age: number;
 }
 
-console.log(advertiseItem(airpods))
-console.log(advertiseItem(headset))
+interface MonthlyMember extends Member {
+	kind: 'monthly';
+}
+
+interface YearlyMember extends Member {
+	kind: 'yearly';
+}
+
+interface HalfyearMember extends Member {
+	kind: 'halfyear';
+}
+
+function checkPermission(member: MonthlyMember | YearlyMember | HalfyearMember): string {
+	switch (member.kind) {
+		case 'monthly':
+			return 'Member has 4 times a week access.';
+		case 'halfyear':
+			return 'Member has access once a day.';
+		case 'yearly':
+			return 'Member has unlimited access.';
+	}
+}
+
+const member1: MonthlyMember = {
+	active: true,
+	fullName: 'Mary Pettinson',
+	age: 20,
+	kind: 'monthly',
+};
+
+const member2: HalfyearMember = {
+	active: true,
+	fullName: 'James Jameson',
+	age: 35,
+	kind: 'halfyear',
+};
+
+const member3: YearlyMember = {
+	active: true,
+	fullName: 'Kurt Karlsen',
+	age: 41,
+	kind: 'yearly',
+};
+
+console.log(checkPermission(member1));
+console.log(checkPermission(member2));
+console.log(checkPermission(member3));
